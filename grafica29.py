@@ -5,7 +5,7 @@ from matplotlib import cm
 
 
 data = np.loadtxt("grilla.dat")
-x = np.linspace(0.0, 1.0, 30
+x = np.linspace(0.0, 1.0, 30)
 t = np.linspace(0.0, 1.0, 30)
 X, T = np.meshgrid(x,t)
 
