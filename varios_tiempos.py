@@ -10,4 +10,4 @@ tiempos = [0,110,220,330,440,560,670,780]
 for i in tiempos:
     plt.plot(x,data[i,:], label = i)
 plt.legend()
-plt.savefig('grafica_X_cero.png')
+plt.savefig('varios_tiempos.png')

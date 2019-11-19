@@ -1,5 +1,7 @@
-grafica29.py: grilla.dat
+grafica29.py graficaX_cero.py varios_tiempos.py: grilla.dat
 	python grafica29.py
+	python graficaX_cero.py
+	python varios_tiempos.py
 grilla.dat: datos29.x
 	./datos29.x 
 	./datos29.x > grilla.dat
