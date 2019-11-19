@@ -7,8 +7,8 @@ int main (){
     //variables
     double phi_1 = 0.0;
     double phi_2 = 0.0;
-    double deltaX = 2/30;
-    double deltaT = 0.01;
+    double deltaX = 2.0/30.0;
+    double deltaT = 0.001;
     double tiempo = 1;
     double D = 1;
     double s = 1;
