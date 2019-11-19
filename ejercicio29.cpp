@@ -1,24 +1,23 @@
 #include <iostream>
+#include<cmath>
 //se llama el metodo
-double ecuacion (double s, double d, float *actual, float *anterior, double Ctiempo, double Cespacio, double deltaT, double deltaX);
+void ecuacion (float s, float d, float Ctiempo, float Cespacio, float deltaT, float deltaX);
 
 //ejecuta el codigo
 int main (){
     //variables
-    double phi_1 = 0.0;
-    double phi_2 = 0.0;
-    double deltaX = 2.0/30.0;
-    double deltaT = 0.001;
-    double tiempo = 1;
-    double D = 1;
-    double s = 1;
-    double inicial = 0;
-    double CTiempo = tiempo / deltaT;
-    double CEspacio = 30;
-    float anterior[30];
-    float actual[30];
-    ecuacion(s, D, actual, anterior, CTiempo, CEspacio, deltaT, deltaX);
-    
+    float phi_1 = 0.0;
+    float phi_2 = 0.0;
+    float deltaX = 2.0/30.0;
+    float deltaT = 0.0001;
+    float tiempo = 1;
+    float D = 1;
+    float s = 1;
+    float inicial = 0;
+    float CTiempo = tiempo / deltaT;
+    float CEspacio = 30;
+    ecuacion(s, D, CTiempo, CEspacio, deltaT, deltaX);
+   
  return 0;
 }
 
@@ -26,29 +25,32 @@ int main (){
 
 
 //metodos
-double ecuacion (double s, double d, float *actual, float *anterior, double Ctiempo, double Cespacio, double deltaT, double deltaX){
+void ecuacion (float s, float d, float Ctiempo, float Cespacio, float deltaT, float deltaX){
+    float anterior[30];
+    float actual[30];
+ for ( int l = 0; l < Cespacio; l++){
+            anterior[l] = 0;
+        }
     for (int i = 0; i < Ctiempo; i ++){
-        std::cout << "t: "<<deltaT*i <<"\n";
-        for(int k = 0; k < Cespacio; k++){
-            std::cout << *(anterior+k) << "\t"; 
+        std::cout<<std::endl;
+        for (int k = 0; k < Cespacio; k++){
+            std::cout << anterior[k]<< "\t";
         }
         std::cout<<std::endl;
         for (int j = 0; j < Cespacio; j ++)
         {
-            if (i == 0){
-                *(actual + j) = 0;
-            }
-            else if (j == 0 || j == Cespacio-1){
-                *(actual + j) = 0;
+            if (j == 0 || j == Cespacio-1){
+                actual[j] = 0;
             }
             else{
-                *(actual +j ) = *(anterior +j) + ((d*deltaT)/(deltaX*deltaX))*(*(anterior + (j+1))- (2* (*(anterior + j)) + (*(anterior - j)))) + (deltaT*s);         
+                actual [j] = anterior[j] + (d*deltaT/pow(deltaX,2))*(anterior[j+1]- (2.0* anterior[j]) + anterior[j-1]) + (deltaT*s);        
             }
-            
+           
         }
         for ( int l = 0; l < Cespacio; l++){
-            *(anterior + l) = *(actual + l);
+            anterior[l] = actual[l];
         }
+         
     }
 }
     
