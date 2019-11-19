@@ -32,7 +32,6 @@ void ecuacion (float s, float d, float Ctiempo, float Cespacio, float deltaT, fl
             anterior[l] = 0;
         }
     for (int i = 0; i < Ctiempo; i ++){
-        std::cout << "t: "<<deltaT*i <<"\n";
         std::cout<<std::endl;
         for (int k = 0; k < Cespacio; k++){
             std::cout << anterior[k]<< "\t";
